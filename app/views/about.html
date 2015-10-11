@@ -1,1 +1,15 @@
-<p>This is the about view.</p>
+<div ng-controller="MainCtrl as MainCtrl">
+  <!-- <h3><img src="{{MainCtrl.tiles_4x4[0].url}}"></img></h3> -->
+  <div ng-repeat="tile in MainCtrl.tiles_4x4 track by tile.id">
+    <div class="square">
+      <div class="content">
+        <div class="table">
+          <div class="table-cell"  id="cell_{{tile.id}}">
+            <div class="back-image" id="back_{{tile.id}}"><img class="rs" src="{{tile.url}}"></img></div>
+            <div class="front-image" id="front_{{tile.id}}"><img class="rs" src="images/lock.png" ng-click="MainCtrl.flip3D('{{tile.id}}')"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
