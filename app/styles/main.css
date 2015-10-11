@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -19,7 +21,7 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+  /*border-bottom: 1px solid #e5e5e5;*/
   margin-bottom: 10px;
 }
 /* Make the masthead heading the same height as the navigation */
@@ -45,6 +47,8 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -52,17 +56,18 @@ body {
 }
 
 /* Supporting marketing content */
-.marketing {
+/*.marketing {
   margin: 40px 0;
 }
 .marketing p + h4 {
   margin-top: 28px;
-}
+}*/
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 600px;
+    max-height: 600px;
   }
 
   /* Remove the padding we set earlier */
@@ -79,5 +84,76 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+
+  .square {
+  	float:left;
+  	position: relative;
+  	width: 30%;
+  	padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
+  	margin:1.66%;
+  	background-color:#B7B7B7;
+  	overflow:hidden;
+  }
+
+  .content {
+  	position:absolute;
+  	height:100%; /* = 100% - 2*5% padding */
+  	width:100%; /* = 100% - 2*5% padding */
+  	padding: 5%;
+  }
+  .table{
+  	display:table;
+  	width:100%;
+  	height:100%;
+  }
+  .table-cell{
+  	display:table-cell;
+  	/*vertical-align:middle;*/
+  }
+
+  .table-cell > .front-image {
+    position: absolute;
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    transform: perspective(600px) rotateY(0deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: -webkit-transform .5s linear 0s;
+    transition: transform .5s linear 0s;
+  }
+  .table-cell > .back-image {
+    position: absolute;
+    -webkit-transform: perspective(900px) rotateY(180deg);
+    transform: perspective(900px) rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: -webkit-transform .5s linear 0s;
+    transition: transform .5s linear 0s;
+  }
+  .table-cell > .front-image-clicked {
+    z-index: 900;
+    /*transform: -webkit-perspective(600px) rotateY(-180deg);*/
+    transform: rotateY(180deg);
+  }
+  .table-cell > .back-image-clicked {
+    z-index: 900;
+    /*transform: -webkit-perspective(600px) rotateY(-0deg);*/
+    transform: perspective(900px) rotateY(0deg);
+  }
+
+  /*  For responsive images */
+  .content .rs{
+  	display: block;
+  	position: relative;
+  	margin: 0 auto;
+  	max-height:100%;
+  	max-width:100%;
+  }
+  /*  For responsive images as background */
+  .bg{
+  	background-position:center center;
+  	background-repeat:no-repeat;
+  	background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+  	color:#fff;
   }
 }
