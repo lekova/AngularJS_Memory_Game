@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('gameApp', [
+angular.module('gameApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -19,17 +18,16 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/main.html'
       })
       .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        templateUrl: 'views/about.html'
+      })
+      .when('/contact', {
+        templateUrl: 'views/contact.html'
       })
       .otherwise({
         redirectTo: '/'
