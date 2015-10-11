@@ -29,6 +29,15 @@ angular.module('gameApp', [
       .when('/contact', {
         templateUrl: 'views/contact.html'
       })
+      .when('/3x4', {
+        templateUrl: 'views/3x4.html'
+      })
+      .when('/4x4', {
+        templateUrl: 'views/4x4.html'
+      })
+      .when('/4x5', {
+        templateUrl: 'views/4x5.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
