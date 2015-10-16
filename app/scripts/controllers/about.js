@@ -7,8 +7,7 @@
  * # AboutCtrl
  * Controller of the gameApp
  */
-angular.module('gameApp')
-  .controller('AboutCtrl', function () {
+angular.module('gameApp').controller('AboutCtrl', function() {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
