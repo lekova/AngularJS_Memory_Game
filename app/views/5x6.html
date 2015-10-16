@@ -1,0 +1,14 @@
+<div ng-controller="FiveBySixCtrl as FiveBySixCtrl">
+  <div ng-repeat="tile in FiveBySixCtrl.tiles_5x6 track by tile.id">
+    <div class="square-five">
+      <div class="content">
+        <div class="table">
+          <div class="table-cell" id="cell_{{tile.id}}">
+            <div class="back-image" id="back_{{tile.id}}"><img class="rs" src="{{tile.url}}"></img></div>
+            <div class="front-image" id="front_{{tile.id}}"><img class="rs" src="images/lock.png" ng-click="FiveBySixCtrl.flip3D('{{tile.id}}')"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
