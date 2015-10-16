@@ -38,6 +38,12 @@ angular.module('gameApp', [
       .when('/4x5', {
         templateUrl: 'views/4x5.html'
       })
+      .when('/5x6', {
+        templateUrl: 'views/5x6.html'
+      })
+      .when('/6x6', {
+        templateUrl: 'views/6x6.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
