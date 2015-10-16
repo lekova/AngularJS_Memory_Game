@@ -1,14 +1,31 @@
-<div ng-controller="ThreeByThreeCtrl as ThreeByThreeCtrl">
-  <div ng-repeat="tile in ThreeByThreeCtrl.tiles_3x4 track by tile.id">
+<div ng-controller="ThreeByFourCtrl as ThreeByFourCtrl">
+  <div ng-repeat="tile in ThreeByFourCtrl.tiles_3x4 track by tile.id">
     <div class="square">
       <div class="content">
         <div class="table">
           <div class="table-cell" id="cell_{{tile.id}}">
-            <div class="back-image" id="back_{{tile.id}}"><img class="rs" src="{{tile.url}}"></img></div>
-            <div class="front-image" id="front_{{tile.id}}"><img class="rs" src="images/lock.png" ng-click="ThreeByThreeCtrl.flip3D('{{tile.id}}')"></div>
+            <div class="back-image" id="back_{{tile.id}}" ng-class="{'flipped': $index === isFlipped}">
+              <img class="rs" src="{{tile.url}}"></img>
+            </div>
+            <div class="front-image" id="front_{{tile.id}}">
+              <img class="rs" src="images/lock.png" ng-click="ThreeByFourCtrl.flipTile(ThreeByFourCtrl.tiles_3x4, '{{tile.id}}')">
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row">
+    <a class="btn btn-lg btn-success" ng-click="ThreeByFourCtrl.newBoard()">New Game
+      <span class="glyphicon glyphicon-ok"></span>
+    </a>
+
+    <a class="btn btn-lg btn-success" ng-click="ThreeByFourCtrl.memory_tile_shuffle()">Shuffle
+      <span class="glyphicon glyphicon-ok"></span>
+    </a>
+  </div>
+  <div class="row">
+    <p>Total clicks: {{ThreeByFourCtrl.totalClicks}}</p>
   </div>
 </div>
