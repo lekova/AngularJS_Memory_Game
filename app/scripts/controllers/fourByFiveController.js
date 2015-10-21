@@ -7,21 +7,91 @@
  * # FourByFiveCtrl is responsible for the page with 20 tiles
  * Controller of the gameApp
  */
-angular.module('gameApp').controller('FourByFiveCtrl', function(Boards, GameFactory) {
+angular.module('gameApp').controller('FourByFiveCtrl', function() {
 
 	var vm = this;
+	//var Helpers = require('./util.js');
+	vm.tiles_4x5 = Helpers.Funcs.memory_tile_shuffle(Helpers.Boards.tiles_4x5);
+	vm.tilesCount = vm.tiles_4x5.length;
+	vm.totalClicks = 0;
+	vm.tiles_flipped = 0;
+	vm.flipped = false;
+	vm.matched_values = [];
+	vm.matched_tiles_ids = [];
 
-	vm.tiles_4x5 = Boards.tiles_4x5;
+	vm.newBoard = function() {
+		vm.matched_values = [];
+		vm.matched_tiles_ids = [];
+		vm.totalClicks = 0;
 
-	vm.memory_tile_shuffle = function() {
-		console.log('memory shuffle clicked');
-		GameFactory.memory_tile_shuffle(vm.tiles_4x5);
+		// shuffle the array
+		vm.memory_tile_shuffle();
+		vm.closeTiles();
 	};
 
-	vm.flip3D = function(id) {
-		var clickedFront = angular.element(document.querySelector('#front_' + id));
-		var clickedBack = angular.element(document.querySelector('#back_' + id));
-		clickedFront.addClass('front-image-clicked');
-		clickedBack.addClass('back-image-clicked');
+	vm.closeTiles = function() {
+		var backs = document.getElementsByClassName('back-image');
+		var fronts = document.getElementsByClassName('front-image');
+
+		for (var i = 0; i < vm.tilesCount; i++) {
+			angular.element(backs[i]).removeClass('back-image-clicked');
+			angular.element(fronts[i]).removeClass('front-image-clicked');
+		}
+	};
+
+	vm.memory_tile_shuffle = function() {
+		vm.closeTiles();
+		Helpers.Funcs.memory_tile_shuffle(vm.tiles_4x5);
+	};
+
+	vm.isFlipped = function(index) {
+		vm.flipped = index;
+	};
+
+	vm.flipTile = function(obj, id) {
+
+		if (vm.matched_values.length < 2) {
+			vm.totalClicks++;
+			var value = Helpers.Funcs.findElementById(obj, id);
+
+			var clickedFront = angular.element(document.querySelector('#front_' + id));
+			var clickedBack = angular.element(document.querySelector('#back_' + id));
+			clickedFront.addClass('front-image-clicked');
+			clickedBack.addClass('back-image-clicked');
+
+			if (vm.matched_values.length === 0) {
+				vm.matched_values.push(value);
+				vm.matched_tiles_ids.push(id);
+			}
+			else if (vm.matched_values.length === 1) {
+				vm.matched_values.push(value);
+				vm.matched_tiles_ids.push(id);
+
+				if (vm.matched_values[0].url === vm.matched_values[1].url) {
+					vm.tiles_flipped += 2;
+
+					vm.matched_values = [];
+					vm.matched_tiles_ids = [];
+
+					if (vm.tiles_flipped === vm.tilesCount) {
+						// TODO: Show modal with win game
+						// reset the board
+					}
+				} else {
+					var prevFront = angular.element(document.querySelector('#front_' + vm.matched_values[0].id));
+					var prevBack = angular.element(document.querySelector('#back_' + vm.matched_values[0].id));
+
+					setTimeout(function() {
+						prevFront.removeClass('front-image-clicked');
+						prevBack.removeClass('back-image-clicked');
+						clickedFront.removeClass('front-image-clicked');
+						clickedBack.removeClass('back-image-clicked');
+					}, 700);
+
+					vm.matched_values = [];
+					vm.matched_tiles_ids = [];
+				}
+			}
+		}
 	};
 });
