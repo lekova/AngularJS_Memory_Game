@@ -98,34 +98,22 @@ body {
   	overflow:hidden;
   }
 
-  .square-four {
-  	float:left;
-  	position: relative;
+  .four {
   	width: 21%;
   	padding-bottom: 21%; /* = width for a 1:1 aspect ratio */
   	margin:1.66%;
-  	background-color:#B7B7B7;
-  	overflow:hidden;
   }
 
-  .square-five {
-  	float:left;
-  	position: relative;
+  .five {
   	width: 15%;
   	padding-bottom: 15%; /* = width for a 1:1 aspect ratio */
   	margin:1.66%;
-  	background-color:#B7B7B7;
-  	overflow:hidden;
   }
 
-  .square-six {
-  	float:left;
-  	position: relative;
+  .six {
   	width: 12.5%;
   	padding-bottom: 12.5%; /* = width for a 1:1 aspect ratio */
   	margin:1.66%;
-  	background-color:#B7B7B7;
-  	overflow:hidden;
   }
 
   .content {
@@ -175,6 +163,7 @@ body {
 
   /*  For responsive images */
   .content .rs{
+    outline: 0;
   	display: block;
   	position: relative;
   	margin: 0 auto;
