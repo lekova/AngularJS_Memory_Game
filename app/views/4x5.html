@@ -1,6 +1,6 @@
-<div ng-controller="FourByFiveCtrl as FourByFiveCtrl">
+<!-- <div ng-controller="FourByFiveCtrl as FourByFiveCtrl">
   <div ng-repeat="tile in FourByFiveCtrl.tiles_4x5 track by tile.id">
-    <div class="square-four">
+    <div class="square four">
       <div class="content">
         <div class="table">
           <div class="table-cell" id="cell_{{tile.id}}">
@@ -10,5 +10,35 @@
         </div>
       </div>
     </div>
+  </div>
+</div> -->
+
+<div ng-controller="FourByFiveCtrl as FourByFiveCtrl">
+  <div ng-repeat="tile in FourByFiveCtrl.tiles_4x5 track by tile.id">
+    <div class="square four">
+      <div class="content">
+        <div class="table">
+          <div class="table-cell" id="cell_{{tile.id}}">
+            <div class="back-image" id="back_{{tile.id}}"><img class="rs" src="{{tile.url}}"></img></div>
+            <div class="front-image" id="front_{{tile.id}}">
+              <img class="rs" src="images/lock.png" ng-click="FourByFiveCtrl.flipTile(FourByFiveCtrl.tiles_4x5, '{{tile.id}}')">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <a class="btn btn-lg btn-success" ng-click="FourByFiveCtrl.newBoard()">New Game
+      <span class="glyphicon glyphicon-ok"></span>
+    </a>
+
+    <a class="btn btn-lg btn-success" ng-click="FourByFiveCtrl.memory_tile_shuffle()">Shuffle
+      <span class="glyphicon glyphicon-ok"></span>
+    </a>
+  </div>
+  <div class="row">
+    <p>Total clicks: {{FourByFiveCtrl.totalClicks}}</p>
   </div>
 </div>

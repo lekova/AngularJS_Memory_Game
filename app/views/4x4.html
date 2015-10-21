@@ -1,14 +1,29 @@
 <div ng-controller="FourByFourCtrl as FourByFourCtrl">
   <div ng-repeat="tile in FourByFourCtrl.tiles_4x4 track by tile.id">
-    <div class="square-four">
+    <div class="square four">
       <div class="content">
         <div class="table">
           <div class="table-cell" id="cell_{{tile.id}}">
             <div class="back-image" id="back_{{tile.id}}"><img class="rs" src="{{tile.url}}"></img></div>
-            <div class="front-image" id="front_{{tile.id}}"><img class="rs" src="images/lock.png" ng-click="FourByFourCtrl.flip3D('{{tile.id}}')"></div>
+            <div class="front-image" id="front_{{tile.id}}">
+              <img class="rs" src="images/lock.png" ng-click="FourByFourCtrl.flipTile(FourByFourCtrl.tiles_4x4, '{{tile.id}}')">
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row">
+    <a class="btn btn-lg btn-success" ng-click="FourByFourCtrl.newBoard()">New Game
+      <span class="glyphicon glyphicon-ok"></span>
+    </a>
+
+    <a class="btn btn-lg btn-success" ng-click="FourByFourCtrl.memory_tile_shuffle()">Shuffle
+      <span class="glyphicon glyphicon-ok"></span>
+    </a>
+  </div>
+  <div class="row">
+    <p>Total clicks: {{FourByFourCtrl.totalClicks}}</p>
   </div>
 </div>

@@ -1,14 +1,29 @@
 <div ng-controller="SixBySixCtrl as SixBySixCtrl">
   <div ng-repeat="tile in SixBySixCtrl.tiles_6x6 track by tile.id">
-    <div class="square-six">
+    <div class="square six">
       <div class="content">
         <div class="table">
           <div class="table-cell" id="cell_{{tile.id}}">
             <div class="back-image" id="back_{{tile.id}}"><img class="rs" src="{{tile.url}}"></img></div>
-            <div class="front-image" id="front_{{tile.id}}"><img class="rs" src="images/lock.png" ng-click="SixBySixCtrl.flip3D('{{tile.id}}')"></div>
+            <div class="front-image" id="front_{{tile.id}}">
+              <img class="rs" src="images/lock.png" ng-click="SixBySixCtrl.flipTile(SixBySixCtrl.tiles_6x6, '{{tile.id}}')">
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row">
+    <a class="btn btn-lg btn-success" ng-click="SixBySixCtrl.newBoard()">New Game
+      <span class="glyphicon glyphicon-ok"></span>
+    </a>
+
+    <a class="btn btn-lg btn-success" ng-click="SixBySixCtrl.memory_tile_shuffle()">Shuffle
+      <span class="glyphicon glyphicon-ok"></span>
+    </a>
+  </div>
+  <div class="row">
+    <p>Total clicks: {{SixBySixCtrl.totalClicks}}</p>
   </div>
 </div>
