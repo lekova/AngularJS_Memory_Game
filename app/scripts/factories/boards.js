@@ -1,7 +1,7 @@
 'use strict';
+var Helpers = Helpers || {};
 
-angular.module('gameApp').factory('Boards', function() {
-
+Helpers.Boards = (function() {
 	var tiles_3x4 = [
 		{ id: 1, url: 'images/3x3/angularjs.png'},
 		{ id: 2, url: 'images/3x3/angularjs.png'},
@@ -138,4 +138,4 @@ angular.module('gameApp').factory('Boards', function() {
 		tiles_5x6: tiles_5x6,
 		tiles_6x6: tiles_6x6
 	};
-});
+})();

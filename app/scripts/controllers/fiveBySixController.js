@@ -10,7 +10,7 @@
 angular.module('gameApp').controller('FiveBySixCtrl', function() {
 
 	var vm = this;
-	//var Helpers = require('./util.js');
+	var Helpers = require('./util.js');
 	vm.tiles_5x6 = Helpers.Funcs.memory_tile_shuffle(Helpers.Boards.tiles_5x6);
 	vm.tilesCount = vm.tiles_5x6.length;
 	vm.totalClicks = 0;

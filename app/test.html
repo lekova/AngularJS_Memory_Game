@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>jQuery Secrets with Dave Ward - Polymorphic Podcast</title>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="Tags.css" type="text/css">
+		<link rel="stylesheet" href="global.css" type="text/css">
+		<link rel="stylesheet" href="github-theme.css" type="text/css">
+
+		<!-- <style>	body { margin: 0px; } </style>*/ -->
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<main>
+			<header>
+				<a href="http://polymorphicpodcast.com">
+					<h1>Polymorphic Podcast</h1>
+					<h2>the show about object oriented development, architecture and b <small></small></h2>
+				</a>
+
+				<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+					<div class="container">
+						<ul>
+								<li><a href="http://polymorphicpodcast.com">Home</a></li>
+								<li><a href="http://polymorphicpodcast.com/shows">Shows</a></li>
+								<li><a href="http://polymorphicpodcast.com/blog">Blog</a></li>
+								<li><a href="http://polymorphicpodcast.com/about">About</a></li>
+								<li><a href="http://polymorphicpodcast.com/contact">Contact</a></li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+
+			<blockquote>
+				<ul>
+				</ul>
+			</blockquote>
+
+			<div>
+				</br>
+				<div class="input-group">
+					<span class="input-group-addon"></span>
+					<input list="colors">
+					<datalist id="colors">
+						<option value="Blue">
+						<option value="Red">
+						<option value="Green">
+					</datalist>
+
+				</div>
+
+				</br>
+				<meter min="0" max="100" value="50">70 out of 100 </meter>
+
+				</br>
+				<progress max="0" value="50"></progress>
+
+				</br>
+				<time datetime="2015-10-17" pubdate> Oct 17, 2015</time>
+				</div>
+
+				</br>
+				<input type="date" />
+				</div>
+
+			</br>
+			<input type="number" />
+			</div>
+
+			</br>
+			<input type="search" />
+			</div>
+
+			<form id="email-form">
+				<input type="text"
+					id="username" name="username"
+					pattern="[a-zA-Z ]{5,}"
+					placeholder="Username"
+					maxlength="30"
+					required
+					data-role="validate"
+					title="Username"
+					data-content="The username is required. The username
+					must be a series of alpha-numeric characters only." /><br />
+
+				<input type="email"
+					id="email" name="email"
+					data-role="validate"
+					placeholder="Email" required
+					title="Email"
+					data-content="The email address is required." /><br />
+
+				<button type="button"
+					class="btn"
+					data-role="trigger-validation">Validate
+				</button>
+			</form>
+			<div id="msg"></div>
+		</main>
+
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script>
+			$(function() {
+				// do something here
+			});
+		</script>
+	</body>
+</html>
